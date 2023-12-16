@@ -28,6 +28,8 @@ model_fullnames = {  'gpt2': 'gpt2',
                      'llama-13b': 'huggyllama/llama-13b',
                      'llama2-13b': 'TheBloke/Llama-2-13B-fp16',
                      'bloom-7b1': 'bigscience/bloom-7b1',
+                     'gpt-2.7_qunat' : 'cerebras/Cerebras-GPT-2.7B',
+                     'bloom-30b' : 'bigscience/bloom-3b',
                      'opt-13b': 'facebook/opt-13b',
                      }
 float16_models = ['gpt-j-6B', 'gpt-neox-20b', 'llama-13b', 'llama2-13b', 'bloom-7b1', 'opt-13b']
@@ -78,7 +80,7 @@ def load_tokenizer(model_name, for_dataset, cache_dir):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_name', type=str, default="bloom-7b1")
+    parser.add_argument('--model_name', type=str, default="bloom-30b")
     parser.add_argument('--cache_dir', type=str, default="../cache")
     args = parser.parse_args()
 
