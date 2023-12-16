@@ -39,6 +39,13 @@ def load_model(model_name, device, cache_dir):
     model_fullname = get_model_fullname(model_name)
     print(f'Loading model {model_fullname}...')
     model_kwargs = {}
+    model_kwargs = {
+        'device_map': 'auto',
+        'low_cpu_mem_usage': True,
+        'load_in_8bit': True,
+        'offload_state_dict': True,
+        'offload_folder': 'offload',
+    }
     if model_name in float16_models:
         model_kwargs.update(dict(torch_dtype=torch.float16))
     if 'gpt-j' in model_name:
