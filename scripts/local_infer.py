@@ -79,8 +79,8 @@ def run(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--reference_model_name', type=str, default="gpt-j-6B")
-    parser.add_argument('--scoring_model_name', type=str, default="gpt-neo-2.7B")
+    parser.add_argument('--reference_model_name', type=str, default="bloom-30b")
+    parser.add_argument('--scoring_model_name', type=str, default="gpt-2.7_qunat")
     parser.add_argument('--dataset', type=str, default="xsum")
     parser.add_argument('--ref_path', type=str, default="./local_infer_ref")
     parser.add_argument('--device', type=str, default="cuda")
