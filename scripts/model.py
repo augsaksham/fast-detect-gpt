@@ -45,18 +45,19 @@ def load_model(model_name, device, cache_dir):
         'device_map': 'auto',
         'low_cpu_mem_usage': True,
         'load_in_8bit': True,
+        'torch_dtype'= 'torch.float16',
         'offload_state_dict': True,
         'offload_folder': 'offload',
     }
-    if model_name in float16_models:
-        model_kwargs.update(dict(torch_dtype=torch.float16))
-    if 'gpt-j' in model_name:
-        model_kwargs.update(dict(revision='float16'))
+    # if model_name in float16_models:
+    #     model_kwargs.update(dict(torch_dtype=torch.float16))
+    # if 'gpt-j' in model_name:
+    #     model_kwargs.update(dict(revision='float16'))
     model = from_pretrained(AutoModelForCausalLM, model_fullname, model_kwargs, cache_dir)
     print('Moving model to GPU...', end='', flush=True)
-    start = time.time()
-    model.to(device)
-    print(f'DONE ({time.time() - start:.2f}s)')
+    # start = time.time()
+    # model.to(device)
+    # print(f'DONE ({time.time() - start:.2f}s)')
     return model
 
 def load_tokenizer(model_name, for_dataset, cache_dir):
