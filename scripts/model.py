@@ -11,9 +11,12 @@ import os
 def from_pretrained(cls, model_name, kwargs, cache_dir):
     # use local model if it exists
     local_path = os.path.join(cache_dir, 'local.' + model_name.replace("/", "_"))
-    if os.path.exists(local_path):
-        return cls.from_pretrained(local_path, **kwargs)
-    return cls.from_pretrained(model_name, **kwargs, cache_dir=cache_dir)
+    man_load_path="/cache/models--cerebras--Cerebras-GPT-2.7B/.no_exist/c978f3b10aff63ceac171afdf24922a21a1c3870/"
+    print("Loading from PATH = ",man_load_path)
+    return cls.from_pretrained(man_load_path,local_files_only=True,**kwargs)
+    # if os.path.exists(local_path):
+    #     return cls.from_pretrained(local_path, **kwargs)
+    # return cls.from_pretrained(model_name, **kwargs, cache_dir=cache_dir)
 
 # predefined models
 model_fullnames = {  'gpt2': 'gpt2',
