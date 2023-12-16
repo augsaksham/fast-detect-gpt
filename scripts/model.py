@@ -45,7 +45,7 @@ def load_model(model_name, device, cache_dir):
         'device_map': 'auto',
         'low_cpu_mem_usage': True,
         'load_in_8bit': True,
-        'torch_dtype'= 'torch.float16',
+        'torch_dtype':'torch.float16',
         'offload_state_dict': True,
         'offload_folder': 'offload',
     }
